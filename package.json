@@ -1,0 +1,22 @@
+{
+  "name": "employee-management-application",
+  "version": "1.0.0",
+  "description": "The EMA will allow to to be able to track employees, salariers and department costs.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/garrettWinter/employee-management-application.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/garrettWinter/employee-management-application/issues"
+  },
+  "homepage": "https://github.com/garrettWinter/employee-management-application#readme",
+  "dependencies": {
+    "inquirer": "^8.2.4"
+  }
+}
