@@ -18,7 +18,8 @@ const db = mysql.createConnection(
 
 // GET Route for viewEmployeesByDepartment
 reports.get('/viewEmployeesByDepartment', (req, res) => {
-    db.query(`SELECT
+    db.query(`
+SELECT
     emp1.employee_id AS 'Employee ID',
     emp1.first_name AS 'First Name', emp1.last_name AS 'Last Name',
     departments.department_name AS 'Department',
@@ -42,8 +43,11 @@ ORDER BY departments.department_name ASC;`, (err, result) => {
 }
 );
 
+
+
 reports.get('/viewEmployeesByDepartment/:department_id', (req, res) => {
-    db.query(`SELECT
+    db.query(`
+SELECT
     emp1.employee_id AS 'Employee ID',
     emp1.first_name AS 'First Name', emp1.last_name AS 'Last Name',
     departments.department_name AS 'Department',
@@ -68,9 +72,12 @@ ORDER BY departments.department_name ASC;`,req.params.department_id, (err, resul
 }
 );
 
+
+
 // GET Route for viewEmployeesByManager
 reports.get('/viewEmployeesByManager', (req, res) => {
-    db.query(`SELECT
+    db.query(`
+SELECT
     emp1.employee_id AS 'Employee ID',
     emp1.first_name AS 'First Name', emp1.last_name AS 'Last Name',
     departments.department_name AS 'Department',
@@ -94,8 +101,11 @@ ORDER BY emp2.first_name ASC;`, (err, result) => {
 }
 );
 
+
+
 reports.get('/viewEmployeesByManager/:manager_emp_id', (req, res) => {
-    db.query(`SELECT
+    db.query(`
+SELECT
     emp1.employee_id AS 'Employee ID',
     emp1.first_name AS 'First Name', emp1.last_name AS 'Last Name',
     departments.department_name AS 'Department',
@@ -123,7 +133,8 @@ ORDER BY emp1.first_name ASC;`,req.params.manager_emp_id, (err, result) => {
 
 // GET Route for viewUtilizedBudget
 reports.get('/viewUtilizedBudget', (req, res) => {
-    db.query(`SELECT 
+    db.query(`
+SELECT 
 	departments.department_name AS 'Department',
 	departments.department_ID AS 'Department ID',
     FORMAT (departments.department_budget,'c', 'en-US') AS 'Allocated Budget ($)',
@@ -131,7 +142,6 @@ reports.get('/viewUtilizedBudget', (req, res) => {
     FORMAT ((departments.department_budget - SUM(roles.salary)),'c', 'en-US') AS 'Budget Variance ($)',
     departments.date_created as "Date Created",
     departments.last_updated as "Updated On"
-
 FROM employees as emp1
 JOIN roles ON roles.role_id = emp1.role_id
 JOIN departments ON departments.department_id = roles.department_id
@@ -145,5 +155,6 @@ GROUP BY departments.department_id;`, (err, result) => {
       });
 }
 );
+
 
 module.exports = reports;
