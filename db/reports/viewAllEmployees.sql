@@ -1,22 +1,17 @@
 USE ema_db;
 
--- -- SELECT employees.employee_id AS "Employee ID", employees.first_name AS "First Name", employees.last_name AS "Last Name", departments.department_name AS "Department",
--- -- roles.title AS "Title", roles.salary AS "Salary", employees.manager_emp_id,
--- -- employees.date_created AS "Employee Create Date", employees.last_updated AS "Employee Last Updated"
--- select *
--- FROM employees A
--- -- JOIN roles ON roles.role_id = A.employees.role_id
--- -- JOIN departments ON departments.department_id = roles.department_id
--- LEFT JOIN employees B ON B.employee_id = A.manager_emp_id
--- ORDER BY A.employees.employee_id ASC;
-
-
 SELECT 
-    A.employee.first_name,
-    A.employee.last_name,
-    B.employee.first_name,
-    B.employee.last_name
-FROM
-    employees
-    LEFT JOIN employees A ON A.employees.manager_emp_id = employees.employee_id
-    LEFT JOIN employees B ON B.employees.employee_id =  employees.employee_id;
+    emp1.employee_id AS 'Employee ID',
+    emp1.first_name AS 'First Name', emp1.last_name AS 'Last Name',
+    departments.department_name AS 'Department',
+    roles.title AS 'Title',
+    FORMAT (roles.salary,'c', 'en-US') AS "Salary ($)",
+    emp2.first_name AS 'Managers First Name', emp2.last_name as 'Managers Last Name',
+    emp1.manager_emp_id as 'Manager ID',
+    emp1.date_created AS 'Employee Create Date',
+    emp1.last_updated AS 'Employee Last Updated'
+FROM employees as emp1
+JOIN roles ON roles.role_id = emp1.role_id
+JOIN departments ON departments.department_id = roles.department_id
+LEFT JOIN employees as emp2 ON emp1.manager_emp_id = emp2.employee_id
+ORDER BY emp1.employee_id ASC;
