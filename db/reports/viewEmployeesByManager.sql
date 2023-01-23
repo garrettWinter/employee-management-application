@@ -16,4 +16,4 @@ JOIN departments ON departments.department_id = roles.department_id
 LEFT JOIN employees as emp2 ON emp1.manager_emp_id = emp2.employee_id
 -- WHERE emp1.manager_emp_id = ? -- THIS SHOULD BE fed in via a parameter
 WHERE emp1.manager_emp_id = 1
-ORDER BY emp1.employee_id ASC;
+ORDER BY emp1.first_name ASC;
