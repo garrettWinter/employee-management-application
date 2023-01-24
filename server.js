@@ -26,15 +26,6 @@ const db = mysql.createConnection(
     console.log(`Connected to the ema_db database.`)
   );
 
-//   db.query(`SELECT * FROM departments WHERE department_id = ?`,1, (err, result) => {
-//     if (err) {
-//       console.log(err);
-//     }
-//     console.log(result);
-//   });
-
-
-
 app.use('/', routes);
 
 app.listen(PORT, () => console.log(`Application listening http://localhost:${PORT}`));
