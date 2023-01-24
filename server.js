@@ -1,6 +1,7 @@
 const express = require('express');
 // Import and require mysql2
 const mysql = require('mysql2');
+const mainMenu = require('./lib/Questionnair.js')
 
 
 const routes = require('./routes/index.js');
@@ -29,3 +30,5 @@ const db = mysql.createConnection(
 app.use('/', routes);
 
 app.listen(PORT, () => console.log(`Application listening http://localhost:${PORT}`));
+
+mainMenu();

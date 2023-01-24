@@ -22,6 +22,7 @@ apiDepartments.get('/', (req, res) => {
   SELECT
     department_id as "Department ID",
     department_name as "Department Name",
+    FORMAT (department_budget,'c', 'en-US') AS "Department Budget ($)",
     date_created as "Date Created",
     last_updated as "Updated On"
 FROM departments;`, (err, result) => {
