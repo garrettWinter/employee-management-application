@@ -14,6 +14,10 @@ FROM employees as emp1
 JOIN roles ON roles.role_id = emp1.role_id
 JOIN departments ON departments.department_id = roles.department_id
 LEFT JOIN employees as emp2 ON emp1.manager_emp_id = emp2.employee_id
--- WHERE emp1.manager_emp_id = ? -- THIS SHOULD BE fed in via a parameter
-WHERE emp1.manager_emp_id = 1
+WHERE emp1.manager_emp_id = (
+    SELECT employees.employee_ID
+    FROM employees
+    join roles ON roles.role_ID = employees.role_ID
+    where CONCAT (employees.first_name, ' ', employees.last_name, ' /  ', roles.title, ' / ', employees.employee_ID) = 'Connie Decker /  CEO / 1'
+    )
 ORDER BY emp1.first_name ASC;

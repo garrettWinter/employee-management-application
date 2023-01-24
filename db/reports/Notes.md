@@ -13,7 +13,7 @@ THEN I am presented with a formatted table showing employee data, including empl
         ---- Used https://www.youtube.com/watch?v=ShVCMvicCL0 to show how to return name instead of a number.
         ---- Used https://www.sqlshack.com/a-comprehensive-guide-to-the-sql-format-function/ to learn how to format values being returned (Add comma's).
         ---- Used https://stackoverflow.com/questions/25329623/mysql-get-difference-between-two-values to get the variance of 2 values.
-
+        --- Used https://www.w3resource.com/mysql/string-functions/mysql-concat-function.php to learn do a where clause using a concat value
 
 DONE --- View employees by manager.
 
