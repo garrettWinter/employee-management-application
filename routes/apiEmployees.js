@@ -1,18 +1,13 @@
 const apiEmployees = require('express').Router();
-const path = require('path'); // Did you use this?
 const mysql = require('mysql2');
-const fs = require('fs'); // Did you use this?
 
 const db = mysql.createConnection(
     {
       host: 'localhost',
-      // MySQL username,
       user: 'root',
-      // TODO: Add MySQL password
       password: '',
       database: 'ema_db'
     },
-    console.log(`Connected to the ema_db database.`)
   );
 
 
