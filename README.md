@@ -43,7 +43,7 @@ Here are some details on how this application can be used:
   - The application can be interacted with using the node CLI to view reports, create, update and delete Departments, Roles and Employees.
   - API routes have been created to allow users to perform GET calls for report data. (Note - This functionality is still in progress and does not allow to search use IDs, nor POST or DELETE API calls)
   - A Video Demo of this application can be found at:
-            (PUT DEMO LINK HERE!!!!!)
+            (https://garrettwinter.github.io/employee-management-application/public/assets/media/Employee_Management-Application.webm)
       
 Below a screenshot(s) of the application:
   - ![Main Menu](./public/assets/images/Main-Menu.png)
